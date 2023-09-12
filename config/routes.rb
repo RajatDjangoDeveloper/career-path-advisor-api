@@ -16,4 +16,23 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+  resources :profiles
+  resources :assessments
+
+  resources :users do
+    resources :assessments
+  end
+
+  resources :users do
+      resources :profiles
+  end
+
+  resources :users do
+    resources :job_search #, only: [:index, :show]
+  end
+
+  # resources :job_search, only: [:index, :show] do
+  #   get :search, on: :collection
+  # end
+
 end
