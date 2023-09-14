@@ -1,11 +1,3 @@
-# Rails.application.routes.draw do
-#   devise_for :users
-#   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-#   # Defines the root path route ("/")
-#   # root "articles#index"
-# end
-
 Rails.application.routes.draw do
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
@@ -16,23 +8,21 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :profiles
-  resources :assessments
 
   resources :users do
-    resources :assessments
+    resources :assesments
   end
 
   resources :users do
-      resources :profiles
+      resources :educations
   end
 
   resources :users do
-    resources :job_search #, only: [:index, :show]
+    resources :job_searches , only: [:index]
   end
 
-  # resources :job_search, only: [:index, :show] do
-  #   get :search, on: :collection
-  # end
+  resources :users do
+    resources :career_advisors , only: [:index]
+  end
 
 end

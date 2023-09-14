@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_11_175202) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_13_183437) do
   create_table "assesments", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "hobbies"
-    t.string "skills"
-    t.string "intrest"
+    t.string "hobbies", null: false
+    t.string "skills", null: false
+    t.string "intrest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_assesments_on_user_id"
@@ -23,9 +23,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_175202) do
 
   create_table "educations", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "school_name"
-    t.string "education_type"
-    t.string "stream"
+    t.string "school_name", null: false
+    t.string "education_type", null: false
+    t.string "stream", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_educations_on_user_id"
@@ -49,11 +49,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_175202) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "name", null: false
     t.string "jti", null: false
     t.integer "gender"
     t.date "dob"
-    t.integer "role", default: 0
+    t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
