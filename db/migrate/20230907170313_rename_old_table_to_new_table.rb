@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameOldTableToNewTable < ActiveRecord::Migration[7.0]
   def change
     rename_table :assesment_tables, :assesments

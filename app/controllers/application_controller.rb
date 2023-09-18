@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::API
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
@@ -10,7 +12,7 @@ class ApplicationController < ActionController::API
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    exception.default_message = "You are not authorized to perform this task"
+    exception.default_message = 'You are not authorized to perform this task'
     respond_to do |format|
       format.json { head :forbidden }
       format.html { redirect_to root_path, alert: exception.message }
@@ -22,4 +24,8 @@ class ApplicationController < ActionController::API
     p exception
   end
 
+  # rescue_from ActiveRecord::RecordInvalid do |exception|
+  #   render json: { 'message' => 'Please enter string value.' }, status: 401
+  #   p exception
+  # end
 end

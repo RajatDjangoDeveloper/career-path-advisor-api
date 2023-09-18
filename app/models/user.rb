@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # relation
   has_many :assesments, dependent: :destroy
@@ -24,5 +26,5 @@ class User < ApplicationRecord
 
   def admin?
     role == 'admin'
-   end
+  end
 end

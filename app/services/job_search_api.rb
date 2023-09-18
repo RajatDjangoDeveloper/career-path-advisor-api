@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'google_search_results'
 
 class JobSearchApi
@@ -11,5 +13,5 @@ class JobSearchApi
   }
 
   search = GoogleSearch.new(params)
-  hash_results = search.get_hash
+  search.get_hash
 end
