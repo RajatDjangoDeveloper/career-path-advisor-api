@@ -72,6 +72,7 @@ GEM
     builder (3.2.4)
     cancancan (3.5.0)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -86,6 +87,7 @@ GEM
     devise-jwt (0.11.0)
       devise (~> 4.0)
       warden-jwt_auth (~> 0.8)
+    diff-lcs (1.5.0)
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
       zeitwerk (~> 2.6)
@@ -96,9 +98,17 @@ GEM
       concurrent-ruby (~> 1.0)
       zeitwerk (~> 2.6)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (3.2.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google_search_results (2.2.0)
+    hiredis (0.6.3)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -179,11 +189,32 @@ GEM
     rake (13.0.6)
     rdoc (6.5.0)
       psych (>= 4.0.0)
+    redis (5.0.7)
+      redis-client (>= 0.9.0)
+    redis-client (0.17.0)
+      connection_pool
     reline (0.3.8)
       io-console (~> 0.5)
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.3)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.1)
     sqlite3 (1.6.4-x86_64-linux)
     stringio (3.0.8)
     thor (1.2.2)
@@ -211,12 +242,17 @@ DEPENDENCIES
   debug
   devise
   devise-jwt
+  factory_bot_rails
+  faker
   google_search_results (~> 2.2)
+  hiredis
   httparty
   jsonapi-serializer
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.7, >= 7.0.7.2)
+  redis
+  rspec-rails
   sqlite3 (~> 1.4)
   tzinfo-data
 

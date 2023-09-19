@@ -42,16 +42,25 @@ gem 'devise-jwt'
 gem 'jsonapi-serializer'
 gem 'rack-cors'
 
-# for third party intregration api
+# for third party intregration google api
 gem 'google_search_results', '~> 2.2'
 gem 'httparty'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
+
+# for redies using cache
+gem 'redis'
+
+# Use hiredis to get better performance than the "redis" gem
+gem 'hiredis'
